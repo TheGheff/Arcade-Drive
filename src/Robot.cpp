@@ -24,7 +24,6 @@ class Robot : public frc::IterativeRobot {
 //
 
 	WPI_TalonSRX * _rghtFront = new WPI_TalonSRX(1);
-
 	WPI_TalonSRX * _leftFront = new WPI_TalonSRX(2);
 
 
@@ -46,8 +45,9 @@ public:
 //				"DB/String 1", stickL->GetXChannel());
 //		m_robotDrive.ArcadeDrive(m_stick.GetY(), m_stick.GetX());
 
-	_diffDrive->ArcadeDrive(m_stick.GetY(), m_stick.GetX());
+		//_diffDrive->ArcadeDrive(m_stick.GetRawAxis(1), m_stick.GetRawAxis(2));
 
+		_diffDrive->TankDrive(m_stick.GetRawAxis(1), m_stick.GetRawAxis(4));
 	}
 };
 
