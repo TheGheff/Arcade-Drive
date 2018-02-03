@@ -23,14 +23,18 @@ class Robot : public frc::IterativeRobot {
 //	frc::DifferentialDrive m_robotDrive{m_leftMotor, m_rightMotor};
 	frc::Joystick m_stick{0};
 //
-
+//Define Drive Motors
 	WPI_TalonSRX * _rghtFront = new WPI_TalonSRX(1);
 	WPI_TalonSRX * _leftFront = new WPI_TalonSRX(2);
 
-
+//Define Drive Train
 	DifferentialDrive * _diffDrive = new DifferentialDrive(*_leftFront,	*_rghtFront);
 
-	//Joystick * _joystick = new Joystick(0);
+//Define Lifter
+		frc::Spark m_leftFeeder{0};
+		frc::Spark m_rightFeeder{1};
+
+
 
 	//Faults _faults_L;
 //	Faults _faults_R;
