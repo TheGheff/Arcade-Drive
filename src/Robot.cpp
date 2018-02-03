@@ -11,6 +11,7 @@
 #include <Spark.h>
 //#include <Talon.h>
 #include "ctre/Phoenix.h"
+#include "RobotMap.h"
 
 /**
  * This is a demo program showing the use of the DifferentialDrive class.
@@ -29,10 +30,10 @@ class Robot : public frc::IterativeRobot {
 
 	DifferentialDrive * _diffDrive = new DifferentialDrive(*_leftFront,	*_rghtFront);
 
-	Joystick * _joystick = new Joystick(0);
+	//Joystick * _joystick = new Joystick(0);
 
-	Faults _faults_L;
-	Faults _faults_R;
+	//Faults _faults_L;
+//	Faults _faults_R;
 
 public:
 	void TeleopPeriodic() {
@@ -43,11 +44,13 @@ public:
 //				"DB/String 0", stickL->GetYChannel());
 //		frc::SmartDashboard::PutNumber(
 //				"DB/String 1", stickL->GetXChannel());
-//		m_robotDrive.ArcadeDrive(m_stick.GetY(), m_stick.GetX());
+
 
 		//_diffDrive->ArcadeDrive(m_stick.GetRawAxis(1), m_stick.GetRawAxis(2));
 
-		_diffDrive->TankDrive(m_stick.GetRawAxis(1), m_stick.GetRawAxis(4));
+		_diffDrive->TankDrive(m_stick.GetRawAxis(LEFT_Y_AXIS), m_stick.GetRawAxis(RIGHT_Y_AXIS), m_stick.GetRawButton(SHOULDER_RIGHT_BUTTON));
+
+
 	}
 };
 
